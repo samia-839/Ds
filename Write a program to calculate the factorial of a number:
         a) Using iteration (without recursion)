@@ -1,22 +1,19 @@
 #include <stdio.h>
 
 int main() {
-    int n, first = 0, second = 1, next;
+    int n;
+    unsigned long long factorial = 1;  // using long long for large results
 
-    printf("Enter the number of terms: ");
+    printf("Enter a positive integer: ");
     scanf("%d", &n);
 
-    printf("Fibonacci Series: ");
-
-    for (int i = 0; i < n; i++) {
-        if (i <= 1)
-            next = i;
-        else {
-            next = first + second;
-            first = second;
-            second = next;
+    if (n < 0)
+        printf("Factorial of a negative number doesn't exist.\n");
+    else {
+        for (int i = 1; i <= n; i++) {
+            factorial *= i;
         }
-        printf("%d ", next);
+        printf("Factorial of %d = %llu\n", n, factorial);
     }
 
     return 0;
